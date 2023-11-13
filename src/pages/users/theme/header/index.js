@@ -1,7 +1,72 @@
-import {memo} from 'react';
+import { memo } from "react";
+import "./style.scss";
+import {
+  AiOutlineFacebook,
+  AiOutlineInstagram,
+  AiOutlineContacts,
+  AiOutlineLinkedin,
+  AiOutlineUser,
+  AiOutlineMail,
+} from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { formatter } from "utils/formater";
 
 const Header = () => {
-    return <h1>Header</h1>
-}
+  return (
+    <>
+      <div className="header_top">
+        <div className="container">
+          <div className="row">
+            <div className="col-6 header__top_left">
+              <ul>
+                <li>
+                  <AiOutlineMail /> PetShop@gmail.com
+                </li>
+                <li>Miễn phí giao hàng từ {formatter(200000)}</li>
+              </ul>
+            </div>
+            <div className="col-6 header__top_right">
+              <ul>
+                <li>
+                  <Link to={""}>
+                    <AiOutlineFacebook />
+                  </Link>
+                </li>
+                <li>
+                  <Link to={""}>
+                    <AiOutlineInstagram />
+                  </Link>
+                </li>
+                <li>
+                  <Link to={""}>
+                    <AiOutlineContacts />
+                  </Link>
+                </li>
+                <li>
+                  <Link to={""}>
+                    <AiOutlineLinkedin />
+                  </Link>
+                </li>
+                <li>
+                  <Link to={""}>
+                    <AiOutlineUser />
+                  </Link>
+                </li>
+                <span>Đăng nhập</span>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-xl-3">LOGO</div>
+          <div className="col-xl-6">MENU</div>
+          <div className="col-xl-3">PHONE</div>
+        </div>
+      </div>
+    </>
+  );    
+};
 
-export default memo(Header)
+export default memo(Header);
