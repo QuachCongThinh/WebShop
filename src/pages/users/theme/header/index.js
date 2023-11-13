@@ -1,10 +1,6 @@
 import { memo, useState } from "react";
 import "./style.scss";
 import {
-  AiOutlineFacebook,
-  AiOutlineInstagram,
-  AiOutlineContacts,
-  AiOutlineLinkedin,
   AiOutlineUser,
   AiOutlineMail,
   AiOutlineShoppingCart,
@@ -15,7 +11,7 @@ import logo from "assets/users/img/logo.png";
 import { ROUTERS } from "utils/router";
 
 const Header = () => {
-  const [menu, setMenu] = useState([
+  const [menus] = useState([
     {
       name: "Trang Chủ",
       path: ROUTERS.USER.HOME,
@@ -27,11 +23,11 @@ const Header = () => {
       child: [
         {
           name: "Thức ăn",
-          path: "",
+          path: ROUTERS.USER.FOOD,
         },
         {
           name: "Phụ kiện",
-          path: "",
+          path: ROUTERS.USER.ACCESSORY,
         },
       ],
     },
@@ -62,26 +58,6 @@ const Header = () => {
               <ul>
                 <li>
                   <Link to={""}>
-                    <AiOutlineFacebook />
-                  </Link>
-                </li>
-                <li>
-                  <Link to={""}>
-                    <AiOutlineInstagram />
-                  </Link>
-                </li>
-                <li>
-                  <Link to={""}>
-                    <AiOutlineContacts />
-                  </Link>
-                </li>
-                <li>
-                  <Link to={""}>
-                    <AiOutlineLinkedin />
-                  </Link>
-                </li>
-                <li>
-                  <Link to={""}>
                     <AiOutlineUser />
                   </Link>
                 </li>
@@ -101,14 +77,20 @@ const Header = () => {
           <div className="col-xl-6">
             <nav className="header__menu">
               <ul>
-                <li>Trang chủ</li>
-                <li>
-                  <Link to={""}>Sản phẩm</Link>
-                  <ul>
-                    <li>Thức ăn</li>
-                    <li>Phụ kiện</li>
-                  </ul>
-                </li>
+                {menus.map((menu, menuKey) => (
+                  <li key={menuKey} className={menuKey === 0 ? "active" : ""}>
+                    <Link to={menu.path}>{menu.name}</Link>
+                    {menu.child && (
+                      <ul className="header__menu__dropdown">
+                        {menu.child.map((childItem, childKey) => (
+                          <li key={`${menuKey}-${childKey}`}>
+                            <Link to={childItem.path}>{childItem.name}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>

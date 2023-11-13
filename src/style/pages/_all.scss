@@ -5,8 +5,11 @@
 html,body{
     margin: 0;
 }
+:root{
+    --font: 'Poppins', sans-serif;;
+}
 *{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font);
     padding: 0;
     margin: 0;
     box-sizing: border-box;
