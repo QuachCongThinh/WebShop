@@ -52,7 +52,6 @@
       color: map.get($theme-color, "text-header");
     }
 
-
     li:nth-last-child(2) {
       cursor: pointer;
       margin-left: 10px;
@@ -64,6 +63,7 @@
     }
     span {
       color: #fff;
+      cursor: pointer;
     }
   }
 }
@@ -106,7 +106,7 @@
       color: map.get($theme-color, "main");
     }
 
-    .header__menu__dropdown{
+    .header__menu__dropdown {
       background: map.get($theme-color, "normal-text");
       display: block;
       position: absolute;
@@ -116,14 +116,14 @@
       transition: all 0.3s ease;
       opacity: 0;
       visibility: hidden;
-      
-      li{
-        a{
+
+      li {
+        a {
           color: map.get($theme-color, "text-header");
           font-size: 13px;
           padding: 5px 15px;
         }
-        :hover{
+        :hover {
           color: #2fa1ff;
         }
       }
@@ -160,6 +160,57 @@
       font-weight: 500;
       left: 20px;
       top: -3px;
+    }
+  }
+}
+
+.hero__category {
+  position: relative;
+
+  .hero__category__all {
+    background: map.get($theme-color, "main");
+    padding: 15px 25px 15px 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 700;
+
+    svg,
+    span {
+      font-size: 19px;
+      color: #fff;
+      margin-right: 5px;
+    }
+  }
+  ul {
+    border: 1px solid #e6e6e6;
+    position: absolute;
+    width: 100%;
+    opacity: 1;
+    background: #fff;
+    transition: all 0.3s;
+
+    li {
+      list-style: none;
+      a {
+        color: map.get($theme-color, "normal-text");
+        font-size: 15px;
+        background: transparent;
+        text-decoration: none;
+        line-height: 35px;
+        display: block;
+        padding-left: 40px;
+      }
+      &:hover {
+        background: #f7ffff;
+        a {
+          color: map.get($theme-color, "main");
+        }
+      }
+    }
+    &.hidden {
+      opacity: 0;
     }
   }
 }

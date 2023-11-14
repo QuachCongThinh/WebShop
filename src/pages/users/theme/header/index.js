@@ -4,6 +4,7 @@ import {
   AiOutlineUser,
   AiOutlineMail,
   AiOutlineShoppingCart,
+  AiOutlineMenu,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { formatter } from "utils/formater";
@@ -11,6 +12,7 @@ import logo from "assets/users/img/logo.png";
 import { ROUTERS } from "utils/router";
 
 const Header = () => {
+  const [isShowCategory, setShowCategory] = useState();
   const [menus] = useState([
     {
       name: "Trang Chủ",
@@ -106,6 +108,37 @@ const Header = () => {
               </li>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="row hero__category_container">
+          <div className="col-lg-3 hero__category">
+            <div
+              className="hero__category__all"
+              onClick={() => setShowCategory(!isShowCategory)}
+            >
+              <AiOutlineMenu />
+              Danh sách sản phẩm
+            </div>
+            <ul className={isShowCategory ? "" : "hidden"}>
+              <li>
+                <Link to={"#"}>Thức ăn cho Chó</Link>
+              </li>
+              <li>
+                <Link to={"#"}>Thức ăn cho Mèo</Link>
+              </li>
+              <li>
+                <Link to={"#"}>Phụ kiện</Link>
+              </li>
+              <li>
+                <Link to={"#"}>Dụng cụ ăn uống</Link>
+              </li>
+              <li>
+                <Link to={"#"}>Dụng cụ Spa</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="col-lg-9">Phai</div>
         </div>
       </div>
     </>
